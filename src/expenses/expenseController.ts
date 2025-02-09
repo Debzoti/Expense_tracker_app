@@ -142,6 +142,8 @@ const expenseController = {
     try {
       const _req = req as AuthRequest
       const userId = _req.userId
+
+      console.log("User Id is:", userId);
  
       const expense = await Expense.findOne({ _id: req.params.id, userId });
       if (!expense) {
@@ -192,7 +194,8 @@ const expenseController = {
       
       const _req = req as AuthRequest
       const userId = _req.userId
-
+      console.log("User Id is:", userId);
+      console.log("Expense Id is:", req.params.id);
       const expense = await Expense.findOne({ _id: req.params.id, userId });
       if (!expense) {
         return next(createHttpError(404,"Expense not found"))

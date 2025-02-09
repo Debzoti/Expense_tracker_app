@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import ExpenseCard from "@/components/ExpenseCard";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import {  fetchExpenses } from "../http/api"; // ✅ Correct way
+import {  getAllExpenses } from "../http/api"; // ✅ Correct way
 
 
 const AddExpensePage = () => {
@@ -12,7 +12,7 @@ const AddExpensePage = () => {
   // Fetch expenses using React Query
   const { data: expenses = [], isLoading, isError } = useQuery({
     queryKey: ["expenses"],
-    queryFn: fetchExpenses,
+    queryFn: getAllExpenses,
   });
 
    
